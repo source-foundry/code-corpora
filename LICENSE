@@ -1,6 +1,6 @@
 The MIT License (MIT)
 
-Copyright (c) 2015 Source Foundry Playground
+Copyright (c) 2015 Christopher Simpkins
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,4 +19,26 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+
+
+Licenses for the included Source Foundry Code Corpora project files are as follows:
+
+javascript/angular - [Apache License, v2.0](https://github.com/angular/angular/blob/master/LICENSE)
+javascript/express - [MIT License](https://github.com/strongloop/express/blob/master/LICENSE)
+javascript/grunt - [MIT License](https://github.com/gruntjs/grunt/blob/master/LICENSE-MIT)
+javascript/jquery - [MIT License](https://github.com/jquery/jquery/blob/master/LICENSE.txt)
+javascript/mocha - [MIT License](https://github.com/mochajs/mocha/blob/master/LICENSE)
+javascript/react - [BSD License](https://github.com/facebook/react/blob/master/LICENSE)
+javascript/underscore - [MIT License](https://github.com/jashkenas/underscore/blob/master/LICENSE)
+
+php/laravel - [MIT License](https://github.com/laravel/laravel/blob/master/readme.md)
+php/symfony - [MIT License](https://github.com/symfony/symfony/blob/master/LICENSE)
+php/wordpress - [Gnu General Public License, v.2](https://github.com/WordPress/WordPress/blob/master/license.txt)
+
+python/ansible - [Gnu General Public License, v.3](https://github.com/ansible/ansible/blob/devel/COPYING)
+python/flask - [Flask License](https://github.com/mitsuhiko/flask/blob/master/LICENSE)
+python/numpy - [Numpy License](https://github.com/numpy/numpy/blob/master/LICENSE.txt)
+python/requests - [Apache License, v2.0](https://github.com/kennethreitz/requests/blob/master/LICENSE)
+
 
