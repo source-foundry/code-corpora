@@ -24,6 +24,10 @@ SOFTWARE.
 
 Licenses for the included Source Foundry Code Corpora project files are as follows:
 
+### C Corpus
+
+- c/git - [Gnu Lesser General Public License, v2.1](https://github.com/git/git/blob/master/LGPL-2.1)
+
 ### JavaScript Corpus
 
 - javascript/angular - [Apache License, v2.0](https://github.com/angular/angular/blob/master/LICENSE)
