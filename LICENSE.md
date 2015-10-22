@@ -52,4 +52,8 @@ Licenses for the included Source Foundry Code Corpora project files are as follo
 - python/numpy - [Numpy License](https://github.com/numpy/numpy/blob/master/LICENSE.txt)
 - python/requests - [Apache License, v2.0](https://github.com/kennethreitz/requests/blob/master/LICENSE)
 
+### Ruby Corpus
+
+- ruby/rails - [MIT License](https://github.com/rails/rails)
+
 
