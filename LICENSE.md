@@ -54,6 +54,7 @@ Licenses for the included Source Foundry Code Corpora project files are as follo
 
 ### Ruby Corpus
 
+- ruby/homebrew - [Homebrew License](https://github.com/Homebrew/homebrew/blob/master/LICENSE.txt)
 - ruby/rails - [MIT License](https://github.com/rails/rails)
 - ruby/rake - [MIT License](https://github.com/ruby/rake/blob/master/MIT-LICENSE)
 
