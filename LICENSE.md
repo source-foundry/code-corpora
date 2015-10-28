@@ -58,5 +58,6 @@ Licenses for the included Source Foundry Code Corpora project files are as follo
 - ruby/jekyll - [MIT License](https://github.com/jekyll/jekyll/blob/master/LICENSE)
 - ruby/rails - [MIT License](https://github.com/rails/rails)
 - ruby/rake - [MIT License](https://github.com/ruby/rake/blob/master/MIT-LICENSE)
+- ruby/vagrant - [MIT License](https://github.com/mitchellh/vagrant/blob/master/LICENSE)
 
 
