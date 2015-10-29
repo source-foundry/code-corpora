@@ -29,6 +29,10 @@ Licenses for the included Source Foundry Code Corpora project files are as follo
 - c/git - [Gnu Lesser General Public License, v2.1](https://github.com/git/git/blob/master/LGPL-2.1)
 - c/linux - [Gnu General Public License, v2](https://github.com/torvalds/linux/blob/master/COPYING)
 
+### Java Corpus
+
+- java/junit - [Eclipse Public License, v1.0](https://github.com/junit-team/junit/blob/master/LICENSE-junit.txt)
+
 ### JavaScript Corpus
 
 - javascript/angular - [Apache License, v2.0](https://github.com/angular/angular/blob/master/LICENSE)
