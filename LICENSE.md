@@ -31,6 +31,7 @@ Licenses for the included Source Foundry Code Corpora project files are as follo
 
 ### Java Corpus
 
+- java/guava - [Apache License, v2.0](https://github.com/google/guava/blob/master/COPYING)
 - java/junit - [Eclipse Public License, v1.0](https://github.com/junit-team/junit/blob/master/LICENSE-junit.txt)
 
 ### JavaScript Corpus
