@@ -44,6 +44,9 @@ Licenses for the included Source Foundry Code Corpora project files are as follo
 - javascript/react - [BSD License](https://github.com/facebook/react/blob/master/LICENSE)
 - javascript/underscore - [MIT License](https://github.com/jashkenas/underscore/blob/master/LICENSE)
 
+### Objective-C Corpus
+- objective-c/adium - [Gnu General Public License, v.2](https://bitbucket.org/adium/adium/src/1e1382dbd8447b1354a4404ac9143aafaa9b624b/License.txt?at=default&fileviewer=file-view-default)
+
 ### PHP Corpus
 
 - php/laravel - [MIT License](https://github.com/laravel/laravel/blob/master/readme.md)
