@@ -65,4 +65,7 @@ Licenses for the included Source Foundry Code Corpora project files are as follo
 - ruby/rake - [MIT License](https://github.com/ruby/rake/blob/master/MIT-LICENSE)
 - ruby/vagrant - [MIT License](https://github.com/mitchellh/vagrant/blob/master/LICENSE)
 
+### Swift Corpus
+
+- swift/realm-cocoa - [Apache License, v2.0; Realm Core Binary License; Export Compliance](https://github.com/realm/realm-cocoa/blob/master/LICENSE)
 
