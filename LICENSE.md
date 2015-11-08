@@ -47,6 +47,7 @@ Licenses for the included Source Foundry Code Corpora project files are as follo
 ### Objective-C Corpus
 - objective-c/adium - [Gnu General Public License, v.2](https://bitbucket.org/adium/adium/src/1e1382dbd8447b1354a4404ac9143aafaa9b624b/License.txt?at=default&fileviewer=file-view-default)
 - objective-c/afnetworking - [MIT License](https://github.com/AFNetworking/AFNetworking/blob/master/LICENSE)
+- objective-c/SDWebImage - [MIT License](https://github.com/rs/SDWebImage/blob/master/LICENSE)
 
 ### PHP Corpus
 
