@@ -70,6 +70,7 @@ Licenses for the included Source Foundry Code Corpora project files are as follo
 
 ### Swift Corpus
 
+- swift/alamofire [MIT License](https://github.com/Alamofire/Alamofire/blob/master/LICENSE)
 - swift/eureka [MIT License](https://github.com/xmartlabs/Eureka/blob/master/LICENSE)
 - swift/neon [MIT License](https://github.com/mamaral/Neon/blob/master/LICENSE.txt)
 - swift/realm-cocoa - [Apache License, v2.0; Realm Core Binary License; Export Compliance](https://github.com/realm/realm-cocoa/blob/master/LICENSE)
