@@ -14,6 +14,7 @@ NOTE: code is ugly, blah blah
 */
 
 const fs = require('fs')
+const startedAt = new Date().getTime()
 
 // objective-c is disabled, because the corpus folder contains subfolder,
 // and it is a Sunday, which makes me too lazy to consider adding things
@@ -104,7 +105,7 @@ fileData = '| Pair | Count |\n| ---- | ----- |\n'
 allPairs.forEach(pair => {
   fileData += '| ' + pair.key  + ' | ' + pair.value + ' |\n'
 })
-fs.writeFile('./results/all_pairs.md', fileData)
+fs.writeFile('./results/all_pairs.md', fileData, onFileWriteErrorHandler)
 
 alphanumericPairs.sort(function(a, b) {
   return b.value - a.value
@@ -113,7 +114,7 @@ fileData = '| Pair | Count |\n| ---- | ----- |\n'
 alphanumericPairs.forEach(pair => {
   fileData += '| ' + pair.key  + ' | ' + pair.value + ' |\n'
 })
-fs.writeFile('./results/alphanumeric_pairs.md', fileData)
+fs.writeFile('./results/alphanumeric_pairs.md', fileData, onFileWriteErrorHandler)
 
 //
 
@@ -129,7 +130,7 @@ fileData = '| Word | Count |\n| ---- | ----- |\n'
 all_words.forEach(word => {
   fileData += '| ' + word.key  + ' | ' + word.value + ' |\n'
 })
-fs.writeFile('./results/all_words.md', fileData)
+fs.writeFile('./results/all_words.md', fileData, onFileWriteErrorHandler)
 
 //
 
@@ -145,4 +146,12 @@ fileData = '| Punctuation | Count |\n| ---- | ----- |\n'
 punctuations.forEach(punctuation => {
   fileData += '| ' + punctuation.key  + ' | ' + punctuation.value + ' |\n'
 })
-fs.writeFile('./results/all_punctuation.md', fileData)
+fs.writeFile('./results/all_punctuation.md', fileData, onFileWriteErrorHandler)
+
+const timeElapsed = Math.round((new Date().getTime() - startedAt) / 100) / 10
+console.log(timeElapsed + ' seconds')
+
+function onFileWriteErrorHandler(error) {
+  // Do nothing...
+  // This is just here to suppress the silly deprecation warning.
+}
