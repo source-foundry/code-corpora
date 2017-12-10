@@ -31,9 +31,14 @@ const languages = [
   'swift'
 ]
 
+let numberOfCharacters = 0
+let numberOfLines = 0
+let numberOfWords = 0
+
 const pairs = []
 const allWords = []
 const allPunctuation = []
+const allCharacters = []
 
 languages.forEach(language => {
   const languagePath = '../' + language
@@ -45,12 +50,22 @@ languages.forEach(language => {
       const filePath = projectPath + '/' + file
       const lines = fs.readFileSync(filePath, { encoding: 'utf8' }).split('\n')
       lines.forEach(line => {
+        numberOfLines++
+
         // Compact and replace all whitespace into regular, single spaces
         line = line.replace(/\s+/g, ' ')
+
+        line.split('').forEach(character => {
+          if (allCharacters[character] === undefined) allCharacters[character] = { key: character, value: 0 }
+          allCharacters[character]["value"]++
+          numberOfCharacters++
+        })
 
         words = line.split(' ')
 
         words.forEach(word => {
+          numberOfWords++
+
           const foundWords = word.match(/[A-Za-z0-9]+/g)
           if (foundWords) {
             foundWords.forEach(_word => {
@@ -67,8 +82,8 @@ languages.forEach(language => {
             })
           }
 
-          const numberOfPairs = word.length - 1
-          for (let position = 0; position < numberOfPairs; position++) {
+          const _numberOfPairs = word.length - 1
+          for (let position = 0; position < _numberOfPairs; position++) {
             const pair = String(word.substring(position, position + 2))
             if (pairs[pair] === undefined) {
               pairs[pair] = { key: pair, value: 0 }
@@ -79,7 +94,7 @@ languages.forEach(language => {
       })
     })
   })
-  console.log(`Finished analyzing '${language}'...`)
+  console.log(`Finished analyzing '${language}'`)
 })
 
 let fileData
@@ -106,6 +121,7 @@ allPairs.forEach(pair => {
   fileData += '| ' + pair.key  + ' | ' + pair.value + ' |\n'
 })
 fs.writeFile('./results/all_pairs.md', fileData, onFileWriteErrorHandler)
+console.log(`All pairs counted, ${allPairs.length} found`);
 
 alphanumericPairs.sort(function(a, b) {
   return b.value - a.value
@@ -115,6 +131,7 @@ alphanumericPairs.forEach(pair => {
   fileData += '| ' + pair.key  + ' | ' + pair.value + ' |\n'
 })
 fs.writeFile('./results/alphanumeric_pairs.md', fileData, onFileWriteErrorHandler)
+console.log(`All alphanumeric pairs counted, ${alphanumericPairs.length} found`);
 
 //
 
@@ -131,6 +148,7 @@ all_words.forEach(word => {
   fileData += '| ' + word.key  + ' | ' + word.value + ' |\n'
 })
 fs.writeFile('./results/all_words.md', fileData, onFileWriteErrorHandler)
+console.log(`All words counted, ${numberOfWords} found`);
 
 //
 
@@ -142,14 +160,29 @@ for (const key in allPunctuation) {
 punctuations.sort(function(a, b) {
   return b.value - a.value
 })
-fileData = '| Punctuation | Count |\n| ---- | ----- |\n'
+fileData = '| Punctuation | Count |\n| ----------- | ----- |\n'
 punctuations.forEach(punctuation => {
   fileData += '| ' + punctuation.key  + ' | ' + punctuation.value + ' |\n'
 })
 fs.writeFile('./results/all_punctuation.md', fileData, onFileWriteErrorHandler)
+console.log(`All punctuation counted, ${punctuations.length} found`);
+
+const characters = []
+for (const key in allCharacters) {
+  characters.push(allCharacters[key])
+}
+characters.sort(function(a, b) {
+  return b.value - a.value
+})
+fileData = '| Character | Count |\n| --------- | ----- |\n'
+characters.forEach(character => {
+  fileData += '| ' + character.key  + ' | ' + character.value + ' |\n'
+})
+fs.writeFile('./results/all_characters.md', fileData, onFileWriteErrorHandler)
+console.log(`All characters counted, ${numberOfCharacters} found`);
 
 const timeElapsed = Math.round((new Date().getTime() - startedAt) / 100) / 10
-console.log(timeElapsed + ' seconds')
+console.log(`${numberOfLines} lines parsed in ${timeElapsed} seconds`);
 
 function onFileWriteErrorHandler(error) {
   // Do nothing...
