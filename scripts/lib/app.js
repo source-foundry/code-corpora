@@ -13,6 +13,8 @@ module.exports = exports = class App {
     this.punctuation = {}
     this.pairs = {}
     this.alphanumericPairs = {}
+    this.triplets = {}
+    this.alphanumericTriplets = {}
   }
 
   loadLanguage(name) {
@@ -84,6 +86,7 @@ module.exports = exports = class App {
       this.countWords(sequence)
       this.countPunctuation(sequence)
       this.countPairs(sequence)
+      this.countTriplets(sequence)
     })
   }
 
@@ -133,13 +136,21 @@ module.exports = exports = class App {
   }
 
   countPairs(sequence) {
-    const numberOfPairs = sequence.length - 1
-    for (let position = 0; position < numberOfPairs; position++) {
-      const pair = String(sequence.substring(position, position + 2))
-      if (this.pairs[pair] === undefined) {
-        this.pairs[pair] = { key: pair, value: 1 }
+    this.countSequence(sequence, 2, 'pairs')
+  }
+
+  countTriplets(sequence) {
+    this.countSequence(sequence, 3, 'triplets')
+  }
+
+  countSequence(sequence, ofLength, repository) {
+    const numberOfSequences = sequence.length - (ofLength - 1)
+    for (let position = 0; position < numberOfSequences; position++) {
+      const section = String(sequence.substring(position, position + ofLength))
+      if (this[repository][section] === undefined) {
+        this[repository][section] = { key: section, value: 1 }
       } else {
-        this.pairs[pair]['value']++
+        this[repository][section]['value']++
       }
     }
   }
@@ -169,41 +180,60 @@ module.exports = exports = class App {
 
   writeResultsToDisk() {
     this.writePairs()
+    this.writeTriplets()
     this.writeWords()
     this.writePunctuation()
     this.writeCharacters()
   }
 
   writePairs() {
-    const data = this.convertAndSort(this.pairs)
-    this.createDefaultReport('Pairs', data, './results/pairs.md')
+    this.writeSequences('pairs')
+  }
 
-    const filteredData = data.filter(function(element) {
+  writeTriplets() {
+    this.writeSequences('triplets')
+  }
+
+  writeSequences(repository) {
+    const data = this.convertAndSort(this[repository])
+    this.createDefaultReport(data, `./results/${repository}`)
+
+    const alphanumerics = data.filter(function(element) {
       return element.key.match(/^[A-Za-z0-9]+$/)
     })
-    this.createDefaultReport('Pairs', filteredData, './results/alphanumeric_pairs.md')
+    this.createDefaultReport(alphanumerics, `./results/${repository}_alphanumerics`)
+
+    const combinations = data.filter(function(element) {
+      return element.key.match(/[A-Za-z0-9]/) && element.key.match(/[^A-Za-z0-9]/)
+    })
+    this.createDefaultReport(combinations, `./results/${repository}_combinations`)
   }
 
   writeWords() {
     const data = this.convertAndSort(this.words)
-    this.createDefaultReport('Words', data, './results/words.md')
+    this.createDefaultReport(data, './results/words')
   }
 
   writePunctuation() {
     const data = this.convertAndSort(this.punctuation)
-    this.createDefaultReport('Punctuation', data, './results/punctuation.md')
+    this.createDefaultReport(data, './results/punctuation')
   }
 
   writeCharacters() {
     const data = this.convertAndSort(this.characters)
-    this.createDefaultReport('Character', data, './results/characters.md')
+    this.createDefaultReport(data, './results/characters')
   }
 
-  createDefaultReport(title, data, filename) {
-    let output = `| ${title} | Count |\n`
-    output += `| ${"-".repeat(title.length)} | ----- |\n`
+  createDefaultReport(data, filename) {
+    filename += '.txt'
+    let limit = data[0].value / 10
+    let output = ''
     data.forEach(item => {
-      output += `| ${item.key} | ${item.value} |\n`
+      if (item.value < limit) {
+        output += '----------\n'
+        limit /= 10
+      }
+      output += `${item.key} ${item.value}\n`
     })
     console.log(`Writing ${output.length} bytes to '${filename}'`)
     fs.writeFileSync(filename, output)
