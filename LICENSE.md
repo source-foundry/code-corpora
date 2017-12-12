@@ -34,6 +34,10 @@ Licenses for the included Source Foundry Code Corpora project files are as follo
 
 - cc/phantomjs - [BSD License](https://github.com/ariya/phantomjs/blob/master/LICENSE.BSD)
 
+### Go Corpus
+
+- go/golang - [BSD New License](https://github.com/golang/go/blob/master/LICENSE)
+
 ### Java Corpus
 
 - java/guava - [Apache License, v2.0](https://github.com/google/guava/blob/master/COPYING)
