@@ -226,14 +226,19 @@ module.exports = exports = class App {
 
   createDefaultReport(data, filename) {
     filename += '.txt'
+    const total = this.countTotal(data)
     let limit = data[0].value / 10
     let output = ''
+    let cumulative = 0
+    let percentage
     data.forEach(item => {
       if (item.value < limit) {
         output += '----------\n'
         limit /= 10
       }
-      output += `${item.key} ${item.value}\n`
+      cumulative += parseInt(item.value)
+      percentage = Math.round((cumulative / total) * 100000) / 100000
+      output += `${item.key} ${item.value} ${percentage}\n`
     })
     console.log(`Writing ${output.length} bytes to '${filename}'`)
     fs.writeFileSync(filename, output)
@@ -241,5 +246,11 @@ module.exports = exports = class App {
 
   onFileWriteErrorHandler(error) {
     console.error('WRITE ERROR', error)
+  }
+
+  countTotal(data) {
+    return data.reduce(function(prev, curr) {
+      return parseInt(prev) + parseInt(curr.value)
+    }, 0)
   }
 }

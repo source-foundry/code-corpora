@@ -27,7 +27,8 @@ const languages = [
   'php',
   'python',
   'ruby',
-  'swift'
+  'swift',
+  // 'www'
 ]
 
 const app = new App('..')
