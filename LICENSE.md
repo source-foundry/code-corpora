@@ -1,6 +1,6 @@
 The MIT License (MIT)
 
-Copyright (c) 2015 Christopher Simpkins
+Copyright (c) 2017 Source Foundry Authors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -33,6 +33,10 @@ Licenses for the included Source Foundry Code Corpora project files are as follo
 ### C++ Corpus
 
 - cc/phantomjs - [BSD License](https://github.com/ariya/phantomjs/blob/master/LICENSE.BSD)
+
+### Go Corpus
+
+- go/golang - [BSD New License](https://github.com/golang/go/blob/master/LICENSE)
 
 ### Java Corpus
 
