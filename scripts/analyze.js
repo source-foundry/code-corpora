@@ -21,6 +21,7 @@ const startedAt = new Date().getTime()
 const languages = [
   'c',
   'cc',
+  'go',
   'java',
   'javascript',
   'objective-c',
