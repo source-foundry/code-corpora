@@ -1,6 +1,6 @@
 The MIT License (MIT)
 
-Copyright (c) 2017 Source Foundry Authors
+Copyright (c) 2018 Source Foundry Authors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -80,6 +80,10 @@ Licenses for the included Source Foundry Code Corpora project files are as follo
 - ruby/rails - [MIT License](https://github.com/rails/rails)
 - ruby/rake - [MIT License](https://github.com/ruby/rake/blob/master/MIT-LICENSE)
 - ruby/vagrant - [MIT License](https://github.com/mitchellh/vagrant/blob/master/LICENSE)
+
+### Rust Corpus
+
+- rust/rustlang - [MIT License + Apache, v2.0](https://github.com/rust-lang/rust/blob/master/COPYRIGHT)
 
 ### Swift Corpus
 
