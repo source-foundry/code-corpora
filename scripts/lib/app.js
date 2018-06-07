@@ -42,6 +42,10 @@ module.exports = exports = class App {
       path = path + '/' + name
     }
     const start = new Date().getTime()
+    if (!fs.lstatSync(path).isDirectory()) {
+      console.log(`  Ignoring '${path}': not a directory`)
+      return
+    }
     const files = fs.readdirSync(path)
     if (files) {
       files.forEach(file => this.loadFile(path, file))
