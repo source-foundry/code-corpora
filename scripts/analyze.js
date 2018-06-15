@@ -28,6 +28,7 @@ const languages = [
   'php',
   'python',
   'ruby',
+  'rust',
   'swift',
   // 'www'
 ]
